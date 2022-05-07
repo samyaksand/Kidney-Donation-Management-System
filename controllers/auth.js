@@ -9,54 +9,6 @@ const db = mysql.createConnection({
 	database: process.env.DATABASE
 });
 
-// exports.details = async (req,res) => {
-//     try {
-//         let fname = req.body.firstname;
-//         let lname = req.body.lastname;
-//         let name = fname + " " +  lname;
-//         let username = req.body.username;
-//         if(username === ''){
-//             return res.render("donorfillup",{
-//                 message : 'Username is needed'
-//             });
-//         }
-//         else{
-//             db.query('SELECT * FROM donor WHERE Username = ?',[username], async (err,results)=>{
-//                 if(err){
-//                     console.log(err);
-//                 }else if(results.length > 0){
-//                     return res.render("donorfillup",{
-//                         message : 'Username already exist'
-//                     });
-//                 }else{
-//                     username = 'DN' + username;
-//                     console.log(req.user.user.Email);
-//                     db.query('UPDATE donor SET ? WHERE Email = ?', [{
-//                         Name : name, Hospital : req.body.hospital, Username : username,
-//                         Personal_Doctor : req.body.doctor, Gender : req.body.gender,
-//                         Address : req.body.address, State : req.body.state, City : req.body.city,
-//                         Contact : req.body.contact, DOB : req.body.dob, Ailments : req.body.disease
-//                     }, req.user.user.Email], async (err,result) => {
-//                         if(err){
-//                             console.log(err);
-//                         }else{
-//                             console.log(result);
-//                             console.log('Successfully updated');
-//                             // const accessToken = jwt.sign({user:user}, process.env.ACCESS_TOKEN);
-//                            // res.cookie("jwt", accessToken, {secure: true, httpOnly: true})
-//                             res.redirect("/donorfillup");
-//                         }
-//                     });
-
-//                 }
-//             });
-//         }
-
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
-
 exports.register = async (req, res) => {
 	try {
 		let email = req.body.email;
@@ -296,7 +248,8 @@ exports.delete = async (req, res) => {
 															mu: '',
 															md: 'Deleted Successfully',
 															mo: '',
-															users: users
+															users: users,
+															Reason: results
 														});
 													} else {
 														user = [];

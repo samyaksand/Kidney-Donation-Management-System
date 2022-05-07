@@ -39,3 +39,8 @@
     border: 1px solid black;
     border-collapse: collapse;
   }
+
+  .log{
+    color: darkgray;
+    text-decoration: none;
+  }

@@ -9,3 +9,8 @@
   .form-control{
     width: 100%;
   }
+
+  .err{
+    color: red;
+    font-size: 20px;
+  }
